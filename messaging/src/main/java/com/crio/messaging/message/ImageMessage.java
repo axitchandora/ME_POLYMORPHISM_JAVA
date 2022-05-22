@@ -11,6 +11,13 @@ public class ImageMessage extends Message{
         this.setMessageType(MessageType.IMAGE);
     }
 
+
+    public ImageMessage(String senderId, String receiverId){
+        super(senderId, receiverId);
+        this.setMessageType(MessageType.IMAGE);
+    }
+    
+
     public String getImageMessageContent() {
         return imageMessageContent;
     }
@@ -25,5 +32,13 @@ public class ImageMessage extends Message{
     public String toString() {
         return "ImageMessage [imageMessageContent=" + imageMessageContent + "messageId="+ this.getMessageId() + ", imageMetaData=" + imageMetaData + ", imageResolution=" + imageResolution + ", messageStatus="
         + this.getMessageStatus() + ", receiverId=" + this.getReceiverId() + ", senderId=" + this.getSenderId() + "]";
+    }
+
+    @Override
+    public boolean isValid() {
+        if(this.getImageMessageContent() != null){
+            return true;
+        }
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 package com.crio.messaging.message;
 
 // Message class contains all message related variables/functions.
-public class Message {
+public abstract class Message {
     private String messageId;
     private String senderId;
     private String receiverId;
@@ -13,6 +13,14 @@ public class Message {
     public Message() {
         this.messageStatus = MessageStatus.SENT;
     }
+
+    public Message(String senderId, String receiverId){
+        this();
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+    }
+
+    public abstract boolean isValid();
 
     public String getSenderId() {
         return senderId;

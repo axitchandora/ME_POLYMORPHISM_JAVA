@@ -8,6 +8,11 @@ public class TextMessage extends Message {
         this.setMessageType(MessageType.TEXT);
     }
 
+    public TextMessage(String senderId, String receiverId){
+        super(senderId, receiverId);
+        this.setMessageType(MessageType.TEXT);
+    }
+
     public String getTextMessageContent() {
         return textMessageContent;
     }
@@ -23,8 +28,17 @@ public class TextMessage extends Message {
     }
 
     public int getTextMessageContentSize() {
-        return 0;
+        return textMessageContent.length();
     }
+
+    @Override
+    public boolean isValid() {
+        if(this.getTextMessageContentSize() > 100){
+            return true;
+        }
+        return false;
+    }
+
 
     
 }

@@ -23,6 +23,10 @@ public class AndroidHandler {
                 e.printStackTrace();
             }
         }
+
+        // 2. Validate message.
+        checkMessageValidity(message);
+
         // 3. Store the Message Safely.
         save(message);
         
@@ -42,6 +46,10 @@ public class AndroidHandler {
                 e.printStackTrace();
             }
         }
+
+        // 2. Validate message.
+        checkMessageValidity(message);
+
         // 3. Store the Message Safely.
         save(message);
         
@@ -78,6 +86,10 @@ public class AndroidHandler {
         // Logic to actually send the message to the user. It may happen through some queueing mechanism.
         // Out of syllabus for this exercise :')
         System.out.println("Image"  + message + " delivered successfully.");
+    }
+
+    private static boolean checkMessageValidity(Message message){
+        return message.isValid();
     }
     
 }

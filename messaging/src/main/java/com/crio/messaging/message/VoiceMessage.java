@@ -11,6 +11,11 @@ public class VoiceMessage extends Message{
         this.setMessageType(MessageType.VOICE);
     }
 
+    public VoiceMessage(String senderId, String receiverId){
+        super(senderId, receiverId);
+        this.setMessageType(MessageType.VOICE);
+    }
+
     public String getVoiceMessageContent() {
         return voiceMessageContent;
     }
@@ -26,6 +31,12 @@ public class VoiceMessage extends Message{
         return "VoiceMessage [VoiceMessageContent=" + voiceMessageContent + "messageId=" + this.getMessageId() + ", voiceQualityInKbps=" + voiceQualityInKbps  + 
         ", durationInSec=" + durationInSec +  ", messageStatus="
         + this.getMessageStatus() + ", receiverId=" + this.getReceiverId() + ", senderId=" + this.getSenderId() + "]";
+    }
+
+    @Override
+    public boolean isValid() {
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }
